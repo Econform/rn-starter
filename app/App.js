@@ -17,9 +17,16 @@ import {
 import RNText from 'app/components/common/RNText'
 import RNButton from 'app/components/common/RNButton'
 import { colors } from 'app/config'
+import config from 'app/config'
+import { getStorybookUI } from '@storybook/react-native';
+
+const StorybookUIRoot = getStorybookUI({});
 
 const App = () => {
   const [count, setCount] = useState(0)
+  if (config.storybookEnabled) {
+    return <StorybookUIRoot />;
+  }
   return (
     <>
       <StatusBar barStyle="dark-content" />
