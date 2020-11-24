@@ -18,16 +18,16 @@ import RNText from 'app/components/common/RNText'
 import RNButton from 'app/components/common/RNButton'
 import { colors } from 'app/config'
 import config from 'app/config'
-import StorybookUI from '../storybook';
+import StorybookUI from 'storybook/'
 
 const App = () => {
   const [count, setCount] = useState(0)
-  if (!config.storybookEnabled) {
+  if (config.storybooksEnabled) {
     return (
-      <View style={{ flex: 1, backgroundColor: colors.primaryColor }}>
-<StorybookUI />
-</View>
-)
+      <View style={styles.storybookContainer}>
+        <StorybookUI />
+      </View>
+    )
   }
   return (
     <>
@@ -49,6 +49,10 @@ const App = () => {
 }
 
 const styles = StyleSheet.create({
+  storybookContainer: {
+    flex: 1,
+    backgroundColor: colors.primaryColor,
+  },
   scrollView: {
     backgroundColor: colors.white,
   },

@@ -1,0 +1,4 @@
+{
+    "name": "storybook",
+    "//": "This allows us to import from e.g. 'storybook/stories/CenterView' from anywhere"
+}

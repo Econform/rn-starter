@@ -1,14 +1,18 @@
 import React from 'react'
 import { View, StyleSheet, TouchableOpacity, Dimensions } from 'react-native'
-import { scale } from 'react-native-size-matters';
+import { scale } from 'react-native-size-matters'
 import RNText from './RNText'
 import colors from '../../config/colors'
 import Icon from 'react-native-vector-icons/Ionicons'
 
-const windowWidth = Dimensions.get('window').width;
+const windowWidth = Dimensions.get('window').width
 const chevronIcon = (
-  <Icon name="chevron-forward-outline" size={windowWidth * 0.05} color={colors.white} />
-);
+  <Icon
+    name="chevron-forward-outline"
+    size={windowWidth * 0.05}
+    color={colors.white}
+  />
+)
 
 const ComponentCell = ({ title, subTitle, onPress }) => {
   return (
@@ -27,8 +31,8 @@ const ComponentCell = ({ title, subTitle, onPress }) => {
         </View>
       </TouchableOpacity>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -72,6 +76,6 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     justifyContent: 'center',
   },
-});
+})
 
-export default ComponentCell;
+export default ComponentCell

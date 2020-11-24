@@ -12,7 +12,7 @@ import colors from '../../config/colors'
 const windowWidth = Dimensions.get('window').width
 
 const SystemCell = ({ imageUrl, icon, title, onPress }) => {
-  const image = { uri: imageUrl };
+  const image = { uri: imageUrl }
 
   return (
     <TouchableOpacity
@@ -31,8 +31,8 @@ const SystemCell = ({ imageUrl, icon, title, onPress }) => {
         </View>
       </ImageBackground>
     </TouchableOpacity>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -65,6 +65,6 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     justifyContent: 'center',
   },
-});
+})
 
-export default SystemCell;
+export default SystemCell

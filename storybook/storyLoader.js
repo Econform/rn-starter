@@ -5,12 +5,12 @@
 
 function loadStories() {
   require('./stories/Button/Button.stories')
-  require('../app/components/common/ComponentCell.stories')
+  require('../app/components/common/ListItem.stories')
 }
 
 const stories = [
   './stories/Button/Button.stories',
-  '../app/components/common/ComponentCell.stories',
+  '../app/components/common/ListItem.stories',
 ]
 
 module.exports = {

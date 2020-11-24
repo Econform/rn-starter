@@ -1,17 +1,17 @@
-import React from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
-import RNText from './RNText';
-import colors from '../../config/colors';
+import React from 'react'
+import { View, StyleSheet, Dimensions } from 'react-native'
+import RNText from './RNText'
+import colors from '../../config/colors'
 
-const windowWidth = Dimensions.get('window').width;
+const windowWidth = Dimensions.get('window').width
 const Paragraph = ({ title, content }) => {
   return (
     <View style={styles.container}>
       <RNText style={styles.title}>{title}</RNText>
       <RNText style={styles.content}>{content}</RNText>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -35,6 +35,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     lineHeight: 30,
   },
-});
+})
 
-export default Paragraph;
+export default Paragraph
