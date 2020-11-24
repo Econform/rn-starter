@@ -5,10 +5,12 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from 'react-native'
-import RNText from './RNText'
+import { scale } from 'react-native-size-matters'
+import Icon from 'react-native-vector-icons/Ionicons'
 import colors from '../../config/colors'
+import RNText from './RNText'
 
-const SystemCell = ({ imageUrl, icon, title, onPress }) => {
+const SystemCell = ({ imageUrl, iconName, title, onPress }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -18,11 +20,15 @@ const SystemCell = ({ imageUrl, icon, title, onPress }) => {
     >
       <ImageBackground
         imageStyle={{ borderRadius: 6 }}
-        source={imageUrl}
+        source={{ uri: imageUrl }}
         style={styles.image}
       >
         <View style={styles.contentContainer}>
-          {icon && <View style={styles.icon}>{icon}</View>}
+          {iconName && (
+            <View style={styles.icon}>
+              <Icon name={iconName} size={scale(20)} color={colors.white} />
+            </View>
+          )}
           <RNText style={styles.title}>{title}</RNText>
         </View>
       </ImageBackground>

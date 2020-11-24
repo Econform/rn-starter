@@ -4,9 +4,6 @@ import { scale } from 'react-native-size-matters'
 import RNText from './RNText'
 import colors from '../../config/colors'
 import Icon from 'react-native-vector-icons/Ionicons'
-const chevronIcon = (
-  <Icon name="chevron-forward-outline" size={scale(20)} color={colors.white} />
-)
 
 const ComponentCell = ({ title, subTitle, onPress }) => {
   return (
@@ -22,7 +19,13 @@ const ComponentCell = ({ title, subTitle, onPress }) => {
             <RNText style={styles.title}>{title}</RNText>
             <RNText style={styles.subTitle}>{subTitle}</RNText>
           </View>
-          <View style={styles.iconContainer}>{chevronIcon}</View>
+          <View style={styles.iconContainer}>
+            <Icon
+              name="chevron-forward-outline"
+              size={scale(20)}
+              color={colors.white}
+            />
+          </View>
         </View>
       </TouchableOpacity>
     </View>
