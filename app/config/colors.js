@@ -11,4 +11,5 @@ export default {
   green: '#008b00',
   amber: '#ff7700',
   red: '#e30021',
+  darkGrey: '#1A1D23',
 }

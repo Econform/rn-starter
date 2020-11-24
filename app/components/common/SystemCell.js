@@ -10,7 +10,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import colors from '../../config/colors'
 import RNText from './RNText'
 
-const SystemCell = ({ imageUrl, iconName, title, onPress }) => {
+const SystemCell = ({ imageUrl, iconName, title, onPress, titleColor }) => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -26,7 +26,11 @@ const SystemCell = ({ imageUrl, iconName, title, onPress }) => {
         <View style={styles.contentContainer}>
           {iconName && (
             <View style={styles.icon}>
-              <Icon name={iconName} size={scale(20)} color={colors.white} />
+              <Icon
+                name={iconName}
+                size={scale(20)}
+                color={titleColor || colors.white}
+              />
             </View>
           )}
           <RNText style={styles.title}>{title}</RNText>
