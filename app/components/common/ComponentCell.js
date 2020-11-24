@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, StyleSheet, TouchableOpacity, Dimensions } from 'react-native'
+import { scale } from 'react-native-size-matters';
 import RNText from './RNText'
 import colors from '../../config/colors'
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -57,17 +58,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginRight: windowWidth * 0.05,
   },
-  icon: {
-    color: colors.white,
-    fontSize: 20,
-  },
   title: {
     color: colors.white,
-    fontSize: 20,
+    fontSize: scale(14),
   },
   subTitle: {
     color: colors.white,
-    fontSize: 18,
+    fontSize: scale(13),
     marginTop: 10,
   },
   image: {
