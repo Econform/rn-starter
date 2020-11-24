@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import RNText from './RNText';
-import colors from '../config/colors';
+import colors from '../../config/colors';
 
 const windowWidth = Dimensions.get('window').width;
 const Paragraph = ({ title, content }) => {

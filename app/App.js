@@ -18,14 +18,16 @@ import RNText from 'app/components/common/RNText'
 import RNButton from 'app/components/common/RNButton'
 import { colors } from 'app/config'
 import config from 'app/config'
-import { getStorybookUI } from '@storybook/react-native';
-
-const StorybookUIRoot = getStorybookUI({});
+import StorybookUI from '../storybook';
 
 const App = () => {
   const [count, setCount] = useState(0)
-  if (config.storybookEnabled) {
-    return <StorybookUIRoot />;
+  if (!config.storybookEnabled) {
+    return (
+      <View style={{ flex: 1, backgroundColor: colors.primaryColor }}>
+<StorybookUI />
+</View>
+)
   }
   return (
     <>

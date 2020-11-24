@@ -1,11 +1,12 @@
 import React from 'react'
 import { View, StyleSheet, TouchableOpacity, Dimensions } from 'react-native'
 import RNText from './RNText'
-import colors from '../config/colors'
+import colors from '../../config/colors'
 import Icon from 'react-native-vector-icons/FontAwesome'
-const chevronIcon = <Icon name="chevron-right" size={30} color={colors.white} />;
 
-const windowWidth = Dimensions.get('window').width
+const windowWidth = Dimensions.get('window').width;
+const chevronIcon = <Icon name="chevron-right" size={windowWidth * 0.05} color={colors.white} />;
+
 const ComponentCell = ({ title, subTitle, onPress }) => {
   return (
     <View style={styles.container}>
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    borderBottomWidth: '2px',
+    borderBottomWidth: 2,
     borderBottomColor: '#6A6A6A',
     marginLeft: windowWidth * 0.05,
   },
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   subTitle: {
-    color: colors.lightGrey,
+    color: colors.white,
     fontSize: 18,
     marginTop: 10,
   },
