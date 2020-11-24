@@ -1,10 +1,9 @@
 import React from 'react'
-import { View, StyleSheet, Dimensions } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import RNText from './RNText'
 import colors from '../../config/colors'
 
-const windowWidth = Dimensions.get('window').width
-const Paragraph = ({ title, content }) => {
+const DetailSlice = ({ title, content }) => {
   return (
     <View style={styles.container}>
       <RNText style={styles.title}>{title}</RNText>
@@ -17,9 +16,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    marginLeft: windowWidth * 0.05,
-    marginRight: windowWidth * 0.05,
-    marginTop: windowWidth * 0.05,
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 20,
   },
   titleContainer: {
     flex: 0.5,
@@ -37,4 +36,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Paragraph
+export default DetailSlice

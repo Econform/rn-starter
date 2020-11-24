@@ -1,20 +1,24 @@
-import { AppRegistry } from 'react-native';
+import { AppRegistry } from 'react-native'
 
-import { getStorybookUI, configure, addDecorator } from '@storybook/react-native';
-import { withKnobs } from '@storybook/addon-knobs';
-import {name as appName} from '../app.json';
-import { loadStories } from './storyLoader';
+import {
+  getStorybookUI,
+  configure,
+  addDecorator,
+} from '@storybook/react-native'
+import { withKnobs } from '@storybook/addon-knobs'
+import { name as appName } from '../app.json'
+import { loadStories } from './storyLoader'
 
-import './rn-addons';
+import './rn-addons'
 
-addDecorator(withKnobs);
+addDecorator(withKnobs)
 
 configure(() => {
-  loadStories();
-}, module);
+  loadStories()
+}, module)
 
-const StorybookUIRoot = getStorybookUI({});
+const StorybookUIRoot = getStorybookUI({})
 
-AppRegistry.registerComponent(appName, () => StorybookUIRoot);
+AppRegistry.registerComponent(appName, () => StorybookUIRoot)
 
-export default StorybookUIRoot;
+export default StorybookUIRoot

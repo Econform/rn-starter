@@ -1,17 +1,11 @@
 import React from 'react'
-import { View, StyleSheet, TouchableOpacity, Dimensions } from 'react-native'
+import { View, StyleSheet, TouchableOpacity } from 'react-native'
 import { scale } from 'react-native-size-matters'
 import RNText from './RNText'
 import colors from '../../config/colors'
 import Icon from 'react-native-vector-icons/Ionicons'
-
-const windowWidth = Dimensions.get('window').width
 const chevronIcon = (
-  <Icon
-    name="chevron-forward-outline"
-    size={windowWidth * 0.05}
-    color={colors.white}
-  />
+  <Icon name="chevron-forward-outline" size={scale(20)} color={colors.white} />
 )
 
 const ComponentCell = ({ title, subTitle, onPress }) => {
@@ -21,6 +15,7 @@ const ComponentCell = ({ title, subTitle, onPress }) => {
         onPress={onPress}
         accessible={true}
         style={styles.touchableContainer}
+        activeOpacity={onPress ? 0.2 : 1}
       >
         <View style={styles.contentContainer}>
           <View style={styles.titleContainer}>
@@ -38,8 +33,8 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     borderBottomWidth: 1,
-    borderBottomColor: '#6A6A6A',
-    marginLeft: windowWidth * 0.05,
+    borderBottomColor: colors.lightGrey,
+    marginLeft: 20,
   },
   touchableContainer: {
     flex: 1,
@@ -48,19 +43,18 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     flexDirection: 'row',
-    paddingTop: windowWidth * 0.03,
-    paddingBottom: windowWidth * 0.03,
+    paddingTop: 15,
+    paddingBottom: 15,
   },
   titleContainer: {
-    flex: 0.9,
+    flex: 1,
     flexDirection: 'column',
-    width: '100%',
   },
   iconContainer: {
-    flex: 0.1,
+    flex: 1,
     alignItems: 'flex-end',
     justifyContent: 'center',
-    marginRight: windowWidth * 0.05,
+    marginRight: 15,
   },
   title: {
     color: colors.white,

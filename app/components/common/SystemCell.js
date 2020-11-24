@@ -4,29 +4,25 @@ import {
   StyleSheet,
   TouchableOpacity,
   ImageBackground,
-  Dimensions,
 } from 'react-native'
 import RNText from './RNText'
 import colors from '../../config/colors'
 
-const windowWidth = Dimensions.get('window').width
-
 const SystemCell = ({ imageUrl, icon, title, onPress }) => {
-  const image = { uri: imageUrl }
-
   return (
     <TouchableOpacity
       onPress={onPress}
       accessible={true}
+      activeOpacity={onPress ? 0.2 : 1}
       style={styles.container}
     >
       <ImageBackground
         imageStyle={{ borderRadius: 6 }}
-        source={image}
+        source={imageUrl}
         style={styles.image}
       >
         <View style={styles.contentContainer}>
-          <View style={styles.icon}>{icon}</View>
+          {icon && <View style={styles.icon}>{icon}</View>}
           <RNText style={styles.title}>{title}</RNText>
         </View>
       </ImageBackground>
@@ -36,16 +32,16 @@ const SystemCell = ({ imageUrl, icon, title, onPress }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     flexDirection: 'column',
-    width: windowWidth * 0.9,
-    height: windowWidth * 0.9,
-    paddingTop: windowWidth * 0.05,
-    paddingRight: windowWidth * 0.05,
-    paddingLeft: windowWidth * 0.05,
+    marginTop: 20,
+    marginRight: 20,
+    marginLeft: 20,
+    alignItems: 'center',
+    width: 375,
+    height: 375,
   },
   contentContainer: {
-    flex: 1,
+    flex: 5,
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
@@ -61,6 +57,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   image: {
+    borderRadius: 6,
+    backgroundColor: colors.blue,
+    width: '100%',
+    height: '100%',
     flex: 1,
     resizeMode: 'cover',
     justifyContent: 'center',
