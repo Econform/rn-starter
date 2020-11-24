@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   },
   image: {
     borderRadius: 6,
-    backgroundColor: colors.blue,
+    backgroundColor: colors.lightGrey,
     width: '100%',
     height: '100%',
     flex: 1,
