@@ -13,13 +13,17 @@ const RatingSlice = ({ title, redValue, amberValue, greenValue }) => {
         <View style={styles.columnHeader}>
           <RNText style={styles.redTitle}>Red</RNText>
         </View>
-
         <View style={styles.columnHeader}>
           <RNText style={styles.amberTitle}>Amber</RNText>
         </View>
         <View style={styles.columnHeader}>
           <RNText style={styles.greenTitle}>Green</RNText>
         </View>
+      </View>
+      <View style={styles.breakerContainer}>
+        <View style={styles.horizontalLine} />
+        <View style={styles.horizontalLine} />
+        <View style={styles.horizontalLine} />
       </View>
       <View style={styles.row}>
         <View style={styles.cell}>
@@ -46,6 +50,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  breakerContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
   row: {
     flexDirection: 'row',
     alignItems: 'flex-start',
@@ -55,6 +64,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     paddingVertical: 20,
+  },
+  horizontalLine: {
+    flex: 0.2,
     borderBottomColor: colors.white,
     borderBottomWidth: 1,
   },
