@@ -9,17 +9,17 @@ const iconName = 'hammer-outline'
 storiesOf('System Cell', module)
   .add('with image', () => <SystemCell imageUrl={imageUrl} />)
   .add('with image and title', () => (
+    <SystemCell imageUrl={imageUrl} title={'Pallet Racking'} />
+  ))
+  .add('with image, title and icon', () => (
     <SystemCell
       iconName={iconName}
       imageUrl={imageUrl}
       title={'Pallet Racking'}
     />
   ))
-  .add('with image, title and no icon', () => (
-    <SystemCell imageUrl={imageUrl} title={'Pallet Racking'} />
-  ))
-  .add('without image', () => <SystemCell title={'Pallet Racking'} />)
-  .add('with onPress', () => (
+  .add('with title', () => <SystemCell title={'Pallet Racking'} />)
+  .add('with icon, image, title and onPress', () => (
     <SystemCell
       iconName={iconName}
       imageUrl={imageUrl}

@@ -8,7 +8,7 @@ storiesOf('List Item', module)
   .add('with title and subtitle', () => (
     <ListItem title={'Front'} subTitle={'As looking at the racking'} />
   ))
-  .add('with onPress', () => (
+  .add('with title, subtitle and onPress', () => (
     <ListItem
       title={'Front'}
       subTitle={'As looking at the racking'}
