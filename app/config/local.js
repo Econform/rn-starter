@@ -1,3 +1,3 @@
 export default {
-  storybooksEnabled: false,
+  storybooksEnabled: true,
 }

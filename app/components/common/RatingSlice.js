@@ -14,7 +14,7 @@ const RatingSlice = ({ title, redValue, amberValue, greenValue }) => {
           <RNText style={styles.redTitle}>Red</RNText>
         </View>
 
-        <View style={[styles.columnHeader, { marginHorizontal: 30 }]}>
+        <View style={styles.columnHeader}>
           <RNText style={styles.amberTitle}>Amber</RNText>
         </View>
         <View style={styles.columnHeader}>
@@ -39,23 +39,20 @@ const RatingSlice = ({ title, redValue, amberValue, greenValue }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'column',
     margin: 20,
+    paddingTop: 20,
   },
   titleContainer: {
-    flex: 1,
-    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
   },
   row: {
-    flex: 3,
     flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
   },
   columnHeader: {
     flex: 1,
-    flexDirection: 'column',
     alignItems: 'center',
     paddingVertical: 20,
     borderBottomColor: colors.white,
@@ -63,14 +60,9 @@ const styles = StyleSheet.create({
   },
   cell: {
     flex: 1,
-    flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'center',
     paddingVertical: 20,
-  },
-  horizonalLine: {
-    flex: 1,
-    borderBottomColor: colors.white,
-    borderBottomWidth: 1,
   },
   title: {
     color: colors.white,
@@ -87,12 +79,6 @@ const styles = StyleSheet.create({
   greenTitle: {
     color: colors.green,
     fontSize: 16,
-  },
-  content: {
-    color: colors.white,
-    fontSize: 16,
-    marginTop: 10,
-    lineHeight: 30,
   },
 })
 
