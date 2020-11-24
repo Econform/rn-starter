@@ -2,10 +2,12 @@ import React from 'react'
 import { View, StyleSheet, TouchableOpacity, Dimensions } from 'react-native'
 import RNText from './RNText'
 import colors from '../../config/colors'
-import Icon from 'react-native-vector-icons/FontAwesome'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 const windowWidth = Dimensions.get('window').width;
-const chevronIcon = <Icon name="chevron-right" size={windowWidth * 0.05} color={colors.white} />;
+const chevronIcon = (
+  <Icon name="chevron-forward-outline" size={windowWidth * 0.05} color={colors.white} />
+);
 
 const ComponentCell = ({ title, subTitle, onPress }) => {
   return (
@@ -29,9 +31,8 @@ const ComponentCell = ({ title, subTitle, onPress }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     flexDirection: 'row',
-    borderBottomWidth: 2,
+    borderBottomWidth: 1,
     borderBottomColor: '#6A6A6A',
     marginLeft: windowWidth * 0.05,
   },
@@ -46,11 +47,12 @@ const styles = StyleSheet.create({
     paddingBottom: windowWidth * 0.03,
   },
   titleContainer: {
-    flex: 0.5,
+    flex: 0.9,
     flexDirection: 'column',
+    width: '100%',
   },
   iconContainer: {
-    flex: 0.5,
+    flex: 0.1,
     alignItems: 'flex-end',
     justifyContent: 'center',
     marginRight: windowWidth * 0.05,
