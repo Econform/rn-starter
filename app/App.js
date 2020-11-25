@@ -9,12 +9,12 @@
 import React from 'react'
 import { StatusBar } from 'react-native'
 import Authenticator from 'app/navigation/Authenticator'
-import configureStore from 'app/store/configureStore'
+import store from 'app/store/store'
 import { Provider } from 'react-redux'
 
 const App = () => {
   return (
-    <Provider store={configureStore}>
+    <Provider store={store}>
       <StatusBar barStyle="dark-content" />
       <Authenticator />
     </Provider>
