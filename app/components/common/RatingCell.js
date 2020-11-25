@@ -1,9 +1,9 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import RNText from './RNText'
-import colors from '../../config/colors'
+import colors from 'app/config/colors'
 
-const DetailSlice = ({ title, color }) => {
+const RatingCell = ({ title, color }) => {
   return (
     <View style={styles.cell}>
       <RNText
@@ -32,4 +32,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default DetailSlice
+export default RatingCell
