@@ -18,7 +18,7 @@ export const slice = createSlice({
     },
     fetchRackingsRejected: (state) => {
       state.loading = false
-      state.errorMessage = 'Error data list'
+      state.errorMessage = 'Error: Unable to fetch rackings'
     },
   },
 })
@@ -29,4 +29,5 @@ export const {
 } = slice.actions
 export const selectRackings = ({ rackings }) => Object.values(rackings.data)
 export const selectRackingsLoading = ({ rackings }) => rackings.loading
+export const selectRackingsError = ({ rackings }) => rackings.errorMessage
 export default slice.reducer
