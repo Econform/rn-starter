@@ -5,9 +5,6 @@ import ListHeader from '../components/common/ListHeader'
 import DetailSlice from '../components/common/DetailSlice'
 import RatingSlice from '../components/common/RatingSlice'
 
-const imageUrl =
-  'https://images.unsplash.com/photo-1531925470851-1b5896b67dcd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80'
-
 const Detail = () => {
   return (
     <SafeAreaView style={styles.container}>
@@ -16,7 +13,7 @@ const Detail = () => {
         style={styles.scrollView}
       >
         <View style={styles.container}>
-          <ListHeader images={imageUrl} />
+          <ListHeader />
           <DetailSlice title={'Test title'} content={'test content'} />
           <RatingSlice title={'Test title'} content={'test content'} />
         </View>

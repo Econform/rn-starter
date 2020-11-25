@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   image: {
-    backgroundColor: colors.blue,
+    backgroundColor: colors.lightGrey,
     width: '100%',
     height: '100%',
     flex: 1,

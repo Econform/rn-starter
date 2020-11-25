@@ -11,10 +11,6 @@ import SystemCell from '../components/common/SystemCell'
 const Dashboard = ({ navigation }) => {
   const rackings = useSelector(selectRackings)
   const isLoading = useSelector(selectRackingsLoading)
-  console.log(rackings)
-  console.log(isLoading)
-  const imageUrl =
-    'https://images.unsplash.com/photo-1531925470851-1b5896b67dcd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80'
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -23,7 +19,6 @@ const Dashboard = ({ navigation }) => {
       >
         <View style={styles.container}>
           <SystemCell
-            imageUrl={imageUrl}
             title="Pallet Racking"
             iconName="hammer-outline"
             onPress={() => navigation.navigate('Info')}

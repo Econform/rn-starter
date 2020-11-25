@@ -5,8 +5,6 @@ import ListHeader from '../components/common/ListHeader'
 import ListItem from '../components/common/ListItem'
 
 const Info = ({ navigation }) => {
-  const imageUrl =
-    'https://images.unsplash.com/photo-1531925470851-1b5896b67dcd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80'
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -14,7 +12,7 @@ const Info = ({ navigation }) => {
         style={styles.scrollView}
       >
         <View style={styles.container}>
-          <ListHeader images={imageUrl} />
+          <ListHeader />
           <ListItem onPress={() => navigation.navigate('Detail')} />
         </View>
       </ScrollView>
