@@ -1,7 +1,8 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import RNText from './RNText'
-import colors from '../../config/colors'
+import RatingCell from './RatingCell'
+import colors from 'app/config/colors'
 
 const RatingSlice = ({ title, redValue, amberValue, greenValue }) => {
   return (
@@ -10,15 +11,9 @@ const RatingSlice = ({ title, redValue, amberValue, greenValue }) => {
         <RNText style={styles.title}>{title}</RNText>
       </View>
       <View style={styles.row}>
-        <View style={styles.columnHeader}>
-          <RNText style={styles.redTitle}>Red</RNText>
-        </View>
-        <View style={styles.columnHeader}>
-          <RNText style={styles.amberTitle}>Amber</RNText>
-        </View>
-        <View style={styles.columnHeader}>
-          <RNText style={styles.greenTitle}>Green</RNText>
-        </View>
+        <RatingCell title="Red" color={colors.red} />
+        <RatingCell title="Amber" color={colors.amber} />
+        <RatingCell title="Green" color={colors.green} />
       </View>
       <View style={styles.breakerContainer}>
         <View style={styles.horizontalLine} />
@@ -26,15 +21,9 @@ const RatingSlice = ({ title, redValue, amberValue, greenValue }) => {
         <View style={styles.horizontalLine} />
       </View>
       <View style={styles.row}>
-        <View style={styles.cell}>
-          <RNText style={styles.title}>{redValue}</RNText>
-        </View>
-        <View style={styles.cell}>
-          <RNText style={styles.title}>{amberValue}</RNText>
-        </View>
-        <View style={styles.cell}>
-          <RNText style={styles.title}>{greenValue}</RNText>
-        </View>
+        <RatingCell title={redValue} />
+        <RatingCell title={amberValue} />
+        <RatingCell title={greenValue} />
       </View>
       <View style={styles.valueContainer} />
     </View>
@@ -60,21 +49,10 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'center',
   },
-  columnHeader: {
-    flex: 1,
-    alignItems: 'center',
-    paddingVertical: 20,
-  },
   horizontalLine: {
     flex: 0.2,
     borderBottomColor: colors.white,
     borderBottomWidth: 1,
-  },
-  cell: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 20,
   },
   title: {
     color: colors.white,

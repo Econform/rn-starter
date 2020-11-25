@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, Image } from 'react-native'
-import colors from '../../config/colors'
+import colors from 'app/config/colors'
 
 const ListHeader = ({ images, onPress }) => {
   return (

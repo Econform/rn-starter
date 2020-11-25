@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import RNText from './RNText'
-import colors from '../../config/colors'
+import colors from 'app/config/colors'
 
 const DetailSlice = ({ title, content }) => {
   return (

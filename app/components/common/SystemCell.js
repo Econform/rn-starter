@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import { scale } from 'react-native-size-matters'
 import Icon from 'react-native-vector-icons/Ionicons'
-import colors from '../../config/colors'
+import colors from 'app/config/colors'
 import RNText from './RNText'
 
 const SystemCell = ({ imageUrl, iconName, title, onPress, titleColor }) => {
