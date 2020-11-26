@@ -5,14 +5,11 @@ import { useSelector } from 'react-redux'
 import ListHeader from '../components/common/ListHeader'
 import DetailSlice from '../components/common/DetailSlice'
 import RatingSlice from '../components/common/RatingSlice'
+import { selectRackingById } from '../store/reducers/rackings'
 
 const Detail = ({ route }) => {
-  const rackingData = useSelector((state) => state.rackings.data)
-  const { rackings } = rackingData
   const rackingId = route.params?.id
-  const racking = rackings.find((rack) => {
-    return rack.id === rackingId
-  })
+  const racking = useSelector(selectRackingById(rackingId))
   const { levels } = racking.fields
   const levelSections = levels.reduce((acc, item) => {
     if (!acc[item.name]) {
@@ -53,7 +50,11 @@ const Detail = ({ route }) => {
         style={styles.scrollView}
       >
         <View style={styles.container}>
-          <ListHeader images={racking.fields.galleries} />
+          <ListHeader
+            images={
+              racking.fields.galleries[0] && racking.fields.galleries[0].image
+            }
+          />
           <DetailSlice
             title={'What it is?'}
             content={racking.fields.what_it_is}

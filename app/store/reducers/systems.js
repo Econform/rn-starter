@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { fetchData } from 'app/thunks'
 export const slice = createSlice({
-  name: 'rackings',
+  name: 'systems',
   initialState: {
     loading: false,
     errorMessage: null,
@@ -9,7 +9,7 @@ export const slice = createSlice({
   },
   extraReducers: {
     [fetchData.fulfilled]: (state, action) => {
-      state.data = action.payload.rackings
+      state.data = action.payload.systems
       state.loading = false
       state.error = action.error
     },
@@ -23,15 +23,12 @@ export const slice = createSlice({
     },
   },
 })
-export const selectRacking = ({ rackings }) => rackings.data
-export const selectRackingsByIds = (rackingChildren) => ({ rackings }) =>
-  rackings &&
-  rackings.data.filter((racking) => {
-    return rackingChildren.includes(racking.id)
+export const selectSystems = ({ systems }) => systems.data
+export const selectSystemById = (id) => ({ systems }) =>
+  systems &&
+  systems.data.find((system) => {
+    return system.id === id
   })
-export const selectRackingById = (id) => ({ rackings }) =>
-  rackings && rackings.data.find((racking) => racking.id === id)
-
-export const selectRackingLoading = ({ rackings }) => rackings.loading
+export const selectSystemsLoading = ({ systems }) => systems.loading
 
 export default slice.reducer

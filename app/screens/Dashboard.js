@@ -1,17 +1,38 @@
 import React, { useEffect } from 'react'
-import { SafeAreaView, StyleSheet, ScrollView, View } from 'react-native'
+import {
+  SafeAreaView,
+  StyleSheet,
+  ScrollView,
+  View,
+  FlatList,
+} from 'react-native'
 import { colors } from 'app/config'
 import { fetchData } from 'app/thunks'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectData, selectDataLoading } from 'app/store/reducers/rackings'
+import { selectSystems } from 'app/store/reducers/systems'
 import SystemCell from '../components/common/SystemCell'
 const Dashboard = ({ navigation }) => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchData())
   }, [])
-  const rackingData = useSelector((state) => state.rackings.data)
-  const { systems } = rackingData
+  const systems = useSelector(selectSystems)
+  const renderItem = ({ item }) => {
+    return (
+      <SystemCell
+        title={item.fields.name}
+        iconName={item.fields.icon.name}
+        imageUrl={item.fields.header_image}
+        onPress={() =>
+          navigation.navigate('Info', {
+            systemId: item.id,
+            rackingChildren: item.children.rackings,
+            title: item.fields.name,
+          })
+        }
+      />
+    )
+  }
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -19,25 +40,7 @@ const Dashboard = ({ navigation }) => {
         style={styles.scrollView}
       >
         <View style={styles.container}>
-          {systems &&
-            systems.map((system, index) => {
-              const { name, icon, header_image } = system.fields
-              return (
-                <SystemCell
-                  key={index}
-                  title={name}
-                  iconName={icon.name}
-                  imageUrl={header_image}
-                  onPress={() =>
-                    navigation.navigate('Info', {
-                      systemId: system.id,
-                      rackingChildren: system.children.rackings,
-                      title: name,
-                    })
-                  }
-                />
-              )
-            })}
+          <FlatList data={systems} renderItem={renderItem} />
         </View>
       </ScrollView>
     </SafeAreaView>

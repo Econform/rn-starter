@@ -4,7 +4,7 @@ import FastImage from 'react-native-fast-image'
 import colors from 'app/config/colors'
 
 const ListHeader = ({ images, onPress }) => {
-  const imageUrl = images && images.isArray ? images[0].image : images
+  const imageUrl = images
   return (
     <TouchableOpacity
       onPress={onPress}
