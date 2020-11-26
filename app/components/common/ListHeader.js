@@ -1,8 +1,10 @@
 import React from 'react'
-import { StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { StyleSheet, TouchableOpacity } from 'react-native'
+import FastImage from 'react-native-fast-image'
 import colors from 'app/config/colors'
 
 const ListHeader = ({ images, onPress }) => {
+  const imageUrl = images && images.isArray ? images[0].image : images
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -10,7 +12,7 @@ const ListHeader = ({ images, onPress }) => {
       activeOpacity={onPress ? 0.2 : 1}
       style={styles.container}
     >
-      <Image source={{ uri: images }} style={styles.image} />
+      <FastImage source={{ uri: imageUrl }} style={styles.image} />
     </TouchableOpacity>
   )
 }

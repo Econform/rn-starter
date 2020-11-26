@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { fetchData } from 'app/thunks'
 export const slice = createSlice({
   name: 'rackings',
   initialState: {
@@ -6,28 +7,25 @@ export const slice = createSlice({
     errorMessage: null,
     data: {},
   },
-  reducers: {
-    fetchRackings: (state) => {
+  extraReducers: {
+    [fetchData.fulfilled]: (state, action) => {
+      state.data = action.payload
+      state.loading = false
+      state.error = action.error
+    },
+    [fetchData.pending]: (state, action) => {
       state.loading = true
-      state.data = {}
+      state.error = action.error
     },
-    fetchRackingsFulfilled: (state, action) => {
+    [fetchData.rejected]: (state, action) => {
       state.loading = false
-      state.data = action.payload.data
-      state.errorMessage = null
-    },
-    fetchRackingsRejected: (state) => {
-      state.loading = false
-      state.errorMessage = 'Error: Unable to fetch rackings'
+      state.error = action.error
     },
   },
 })
-export const {
-  fetchRackings,
-  fetchRackingsFulfilled,
-  fetchRackingsRejected,
-} = slice.actions
-export const selectRackings = ({ rackings }) => Object.values(rackings.data)
-export const selectRackingsLoading = ({ rackings }) => rackings.loading
-export const selectRackingsError = ({ rackings }) => rackings.errorMessage
+export const selectData = ({ rackings }) => {
+  Object.values(rackings.data)
+}
+export const selectDataLoading = ({ rackings }) => rackings.loading
+
 export default slice.reducer
