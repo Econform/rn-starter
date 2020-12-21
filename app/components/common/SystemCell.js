@@ -1,13 +1,9 @@
 import React from 'react'
-import {
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  ImageBackground,
-} from 'react-native'
+import { View, StyleSheet, TouchableOpacity } from 'react-native'
 import { scale } from 'react-native-size-matters'
-import Icon from 'react-native-vector-icons/Ionicons'
-import colors from '../../config/colors'
+import Icon from 'react-native-vector-icons/FontAwesome'
+import FastImage from 'react-native-fast-image'
+import colors from 'app/config/colors'
 import RNText from './RNText'
 
 const SystemCell = ({ imageUrl, iconName, title, onPress, titleColor }) => {
@@ -18,7 +14,7 @@ const SystemCell = ({ imageUrl, iconName, title, onPress, titleColor }) => {
       activeOpacity={onPress ? 0.2 : 1}
       style={styles.container}
     >
-      <ImageBackground
+      <FastImage
         imageStyle={{ borderRadius: 6 }}
         source={{ uri: imageUrl }}
         style={styles.image}
@@ -35,7 +31,7 @@ const SystemCell = ({ imageUrl, iconName, title, onPress, titleColor }) => {
           )}
           <RNText style={styles.title}>{title}</RNText>
         </View>
-      </ImageBackground>
+      </FastImage>
     </TouchableOpacity>
   )
 }
@@ -68,7 +64,7 @@ const styles = StyleSheet.create({
   },
   image: {
     borderRadius: 6,
-    backgroundColor: colors.blue,
+    backgroundColor: colors.lightGrey,
     width: '100%',
     height: '100%',
     flex: 1,

@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, StyleSheet, View, StatusBar } from 'react-native'
+import { StyleSheet, View, StatusBar } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { colors } from 'app/config'
@@ -19,6 +19,15 @@ const Authenticator = () => {
       </View>
     )
   }
+  const options = {
+    headerStyle: {
+      backgroundColor: colors.darkGrey,
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+  }
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -29,42 +38,18 @@ const Authenticator = () => {
             component={Dashboard}
             options={{
               title: 'Econform',
-              headerStyle: {
-                backgroundColor: colors.darkGrey,
-              },
-              headerTintColor: '#fff',
-              headerTitleStyle: {
-                fontWeight: 'bold',
-              },
+              ...options,
             }}
           />
           <Stack.Screen
             name="Info"
             component={Info}
-            options={{
-              title: 'Econform',
-              headerStyle: {
-                backgroundColor: colors.darkGrey,
-              },
-              headerTintColor: '#fff',
-              headerTitleStyle: {
-                fontWeight: 'bold',
-              },
-            }}
+            options={({ route }) => ({ title: route.params.title, ...options })}
           />
           <Stack.Screen
             name="Detail"
             component={Detail}
-            options={{
-              title: 'Econform',
-              headerStyle: {
-                backgroundColor: colors.darkGrey,
-              },
-              headerTintColor: '#fff',
-              headerTitleStyle: {
-                fontWeight: 'bold',
-              },
-            }}
+            options={({ route }) => ({ title: route.params.title, ...options })}
           />
         </Stack.Navigator>
       </NavigationContainer>

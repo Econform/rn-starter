@@ -36,8 +36,8 @@ The bulk of the code is in the `app` directory.
 | app/components | lower level components, e.g. buttons                                                                                   |
 | app/screens    | components representing entire screens within the app, where integration with redux would happen                       |
 | app/config     | app-wide config - things like an api host, colors, etc. Configuration of the redux store and, in dev, tools like Reactotron. |
-| app/state      | redux reducers/actions/selectors. Combined in `index.js`                                                               |
-| app/sagas      | `redux-saga` sagas, forked from the root saga in `index.js` to run in parallel.                                        |
+| app/store      | redux reducers/actions/selectors. Combined in `index.js`                                                               |
+| app/thunks      | `redux-thunk` thunks.                                        |
 | \_\_tests\_\_/ | Tests, using [Jest](https://jestjs.io/)                                                                                |
 | ios/           | Native iOS project
 | android/       | Native Android project

@@ -1,11 +1,38 @@
-import React from 'react'
-import { SafeAreaView, StyleSheet, ScrollView, View } from 'react-native'
+import React, { useEffect } from 'react'
+import {
+  SafeAreaView,
+  StyleSheet,
+  ScrollView,
+  View,
+  FlatList,
+} from 'react-native'
 import { colors } from 'app/config'
+import { fetchData } from 'app/thunks'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectSystems } from 'app/store/reducers/systems'
 import SystemCell from '../components/common/SystemCell'
-
 const Dashboard = ({ navigation }) => {
-  const imageUrl =
-    'https://images.unsplash.com/photo-1531925470851-1b5896b67dcd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80'
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchData())
+  }, [])
+  const systems = useSelector(selectSystems)
+  const renderItem = ({ item }) => {
+    return (
+      <SystemCell
+        title={item.fields.name}
+        iconName={item.fields.icon.name}
+        imageUrl={item.fields.header_image}
+        onPress={() =>
+          navigation.navigate('Info', {
+            systemId: item.id,
+            rackingChildren: item.children.rackings,
+            title: item.fields.name,
+          })
+        }
+      />
+    )
+  }
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -13,12 +40,7 @@ const Dashboard = ({ navigation }) => {
         style={styles.scrollView}
       >
         <View style={styles.container}>
-          <SystemCell
-            imageUrl={imageUrl}
-            title="Pallet Racking"
-            iconName="hammer-outline"
-            onPress={() => navigation.navigate('Info')}
-          />
+          <FlatList data={systems} renderItem={renderItem} />
         </View>
       </ScrollView>
     </SafeAreaView>

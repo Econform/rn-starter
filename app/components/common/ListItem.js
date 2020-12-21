@@ -2,7 +2,7 @@ import React from 'react'
 import { View, StyleSheet, TouchableOpacity } from 'react-native'
 import { scale } from 'react-native-size-matters'
 import RNText from './RNText'
-import colors from '../../config/colors'
+import colors from 'app/config/colors'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 const ComponentCell = ({ title, subTitle, onPress }) => {
